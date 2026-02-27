@@ -1,0 +1,394 @@
+/* Problem.html's CSS Code */
+body {
+    background: #303030;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #111827;
+    line-height: 1.6;
+}
+
+.container {
+    /* max-width: 1400px; */
+    margin: auto;
+    padding: 0 10px;
+}
+
+.problem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    gap: 15px;
+}
+
+/* Left side */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Right side */
+.header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 20px;
+    color: white;
+}
+
+.easy {
+    background: #22c55e;
+}
+
+.medium {
+    background: #f59e0b;
+}
+
+.hard {
+    background: #ef4444;
+}
+
+/* Problem page two-column layout */
+.problem-layout {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.problem-left {
+    flex: 1;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 12px;
+    /* border: 2px solid #d1d5db; */
+}
+
+.close,
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 40px;
+    width: 40px;
+
+    background: transparent;
+    border: 2px solid #444;
+    color: #fff;
+
+    font-size: 25px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover,
+.toggle-btn:hover {
+    background: #2a2a2a;
+    border-color: #666;
+}
+
+
+/* Floating Show Button */
+.floating-show-btn {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    z-index: 1000;
+    background: transparent;
+    border: 2px solid #444;
+    color: #fff;
+    color: white;
+    font-size: 25px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s;
+}
+
+.floating-show-btn:hover {
+    transform: scale(1.1);
+    background: #2a2a2a;
+    border-color: #666;
+}
+
+/* Expand right panel */
+.problem-layout.collapsed .problem-right {
+    flex: 1 1 100%;
+}
+
+/* Smooth transition */
+.problem-left,
+.problem-right {
+    transition: all 0.3s ease;
+}
+
+.problem-layout.collapsed .problem-left {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.problem-right {
+    flex: 2;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.problem-right .section {
+    margin: 0;
+    background-color: transparent;
+    border: none;
+}
+
+.section {
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.section h3 {
+    margin: 0;
+}
+
+.section p {
+    margin: 0;
+}
+
+pre {
+    background: #393838;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+#run-btn {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+#run-btn:hover {
+    background: #16a34a;
+}
+
+#submit-btn {
+    margin-left: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#submit-btn.enabled {
+    cursor: pointer;
+    opacity: 1;
+    background: #0477d1;
+}
+
+@media (max-width: 900px) {
+    .problem-layout {
+        flex-direction: column;
+    }
+}
+
+.CodeMirror {
+    border-radius: 6px;
+    font-size: 24px;
+    border: 2px solid #444;
+    margin-top: 8px;
+    resize: vertical;
+}
+
+.CodeMirror-gutters {
+    background-color: #2d2d2d;
+    border-right: 1px solid #444;
+}
+
+.CodeMirror-linenumber {
+    color: #666;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+button[data-shortcut] {
+    position: relative;
+}
+
+button[data-shortcut]::after {
+    content: "Shortcut: "attr(data-shortcut);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f1f1f;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 20px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+button[data-shortcut]:hover::after {
+    opacity: 1;
+}
+
+.mobile-editor-btn {
+    margin: 15px 0;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.mobile-editor-btn:active {
+    transform: scale(0.97);
+}
+
+/* Hide mobile-only buttons on desktop */
+.mobile-editor-btn {
+    display: none;
+}
+
+/* Show only on mobile */
+@media (max-width: 900px) {
+    .mobile-editor-btn {
+        display: block;
+    }
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE EDITOR LOGIC */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .problem-layout {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .problem-left,
+    .problem-right {
+        width: 100%;
+        /* min-height: 100%; */
+        transition: transform 0.35s ease, opacity 0.3s ease;
+    }
+
+    /* Default state */
+    .problem-left {
+        transform: translateX(0);
+    }
+
+    .problem-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* margin-left: ; */
+        padding-left: 0;
+        transform: translateX(100%);
+        background: #303030;
+    }
+
+    /* When editor active */
+    .problem-layout.mobile-editor-active .problem-left {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .problem-layout.mobile-editor-active .problem-right {
+        transform: translateX(0);
+    }
+
+    .problem-right .section {
+        flex-shrink: 0;
+    }
+
+    .output-section {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .problem-right .section-header {
+        position: sticky;
+        top: 0;
+        background: #303030;
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    .CodeMirror {
+        height: 60vh !important;
+        font-size: 18px;
+    }
+
+    #hidePanelBtn, #showPanelBtn {
+        display: none;
+    }
+}

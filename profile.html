@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | JSolver</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <!-- font awausome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="profile-container">
+
+        <!-- Left Section -->
+        <div class="profile-left">
+            <div class="profile-card">
+                <div class="backbutton">
+                    <a href="index.html"><i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <img src="/img/logo-main.png" class="profile-pic">
+                <div class="name">
+                    <h2>Girish Suthar ✨</h2>
+                    <a class="edit-btn"><i class="fas fa-edit"></i></a>
+                </div>
+                <p class="bio">Frontend Developer | DSA Explorer 🚀</p>
+
+                <div class="about-user">
+                    <h3>About Me</h3>
+                    <p>Passionate about crafting seamless user experiences and solving complex problems with elegant
+                        code. With a strong foundation in JavaScript and a love for data structures and algorithms, I
+                        thrive on tackling coding challenges and continuously improving my skills. When I'm not coding,
+                        you can find me exploring new technologies, contributing to open-source projects, or sharing my
+                        knowledge through tech blogs and workshops.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="profile-right">
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>Total Problems</h4>
+                    <span id="totalCount">0</span>
+                </div>
+
+                <div class="stat-box">
+                    <h4>Solved</h4>
+                    <span id="solvedCount">0</span>
+                </div>
+
+                <div class="stat-box">
+                    <h4>Accuracy</h4>
+                    <span id="accuracy">0%</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h3>Difficulty Progress</h3>
+
+                <div class="progress-item">
+                    <label class="easy-label">Easy</label>
+                    <div class="progress-bar">
+                        <div class="progress easy-bar"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <label class="medium-label">Medium</label>
+                    <div class="progress-bar">
+                        <div class="progress medium-bar"></div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <label class="hard-label">Hard</label>
+                    <div class="progress-bar">
+                        <div class="progress hard-bar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- All solved problems -->
+            <div class="solved-section">
+                <h3>Solved Problems</h3>
+                <ul id="solvedList" class="solved-list"></ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/problems.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

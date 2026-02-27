@@ -1,0 +1,630 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #22c55e #1f1f1f;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+}
+
+/* .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 15px 200px; */
+   padding: 15px 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  background: #303030;
+}
+
+/* Blur state */
+header.blur {
+  background: rgba(48, 48, 48, 0.3);
+  backdrop-filter: blur(15px);
+}
+
+.logo img {
+  width: 200px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav ul li {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  border: 2px solid transparent;
+  padding: 6px 12px;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.nav ul li a:hover {
+  color: #22c55e;
+  border: 2px solid #22c55e;
+  border-radius: 12px;
+  /* font-weight: bold; */
+}
+
+.profile-btn a {
+  background: #22c55e;
+  color: #000 !important;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+}
+
+.profile-btn a:hover {
+  background: #16a34a;
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.hamburger {
+  display: none;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background-image: url('/img/hero-bg.avif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 30px;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 100px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hero h1,
+.hero p,
+.hero a {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.solve-btn {
+  background: #22c55e;
+  color: #000 !important;
+  border: none;
+  padding: 12px 20px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  filter: drop-shadow(0 10px 30px rgba(0, 255, 213, 0.2));
+  transition: transform 0.4s ease;
+}
+
+.solve-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Problem list section */
+/* Overlay Background */
+.problem-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Active state */
+.problem-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Modal Window */
+.problem-modal {
+  width: 70%;
+  max-height: 80vh;
+  background: #1f1f1f;
+  border-radius: 20px;
+  padding: 30px;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Problem List */
+#problem-list {
+  padding: 0;
+}
+
+/* Problem Row */
+.problem-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2a2a2a;
+  font-size: 20px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.problem-row:hover {
+  background: #333;
+  border: 2px solid #22c55e;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+  transform: translateX(5px);
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: white;
+}
+
+.easy {
+  background: #22c55e;
+}
+
+.medium {
+  background: #f59e0b;
+}
+
+.hard {
+  background: #ef4444;
+}
+
+.solved-badge {
+  /* margin-left: 10px; */
+  padding: 4px 10px;
+  /* background-color: #22c55e; */
+  color: #22c55e;
+  font-size: 20px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.problem-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.problem-controls input,
+.problem-controls select {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #2a2a2a;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.problem-controls input:focus,
+.problem-controls select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 10px rgba(0, 255, 213, 0.2);
+}
+
+.problem-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.problem-modal::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+.problem-modal::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 10px;
+}
+
+.problem-modal::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* About */
+.about {
+  padding: 120px 10%;
+  background: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* Logo Side */
+.about-logo img {
+  width: 320px;
+  max-width: 100%;
+  filter: drop-shadow(0 10px 30px rgba(0, 255, 213, 0.2));
+  transition: transform 0.4s ease;
+}
+
+.about-logo img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Content Side */
+.about-contant {
+  max-width: 600px;
+}
+
+.about-contant h2 {
+  font-size: 42px;
+  margin-bottom: 25px;
+  color: #fff;
+  position: relative;
+}
+
+.about-contant h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #22c55e;
+  display: block;
+  margin-top: 12px;
+  border-radius: 10px;
+}
+
+.about-contant p {
+  font-size: 17px;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* features */
+.features {
+  padding: 120px 10%;
+  background: #1f1f1f;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 42px;
+  margin-bottom: 60px;
+  color: #fff;
+  position: relative;
+}
+
+.features h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #22c55e;
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+/* Grid Layout */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Card Design */
+.feature-item {
+  background: #2a2a2a;
+  padding: 40px 25px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.feature-item:hover {
+  transform: translateY(-10px);
+  border: 1px solid #22c55e;
+  box-shadow: 0 15px 40px rgba(0, 255, 213, 0.15);
+}
+
+/* Glow animation */
+.feature-item::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 213, 0.08) 0%, transparent 60%);
+  top: -50%;
+  left: -50%;
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-item:hover::before {
+  opacity: 1;
+}
+
+.feature-item h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #22c55e;
+}
+
+.feature-item p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.feature-item i {
+  font-size: 45px;
+  color: #22c55e;
+  margin-bottom: 20px;
+}
+
+/* Contact */
+.contact {
+  padding: 120px 10%;
+  background: #111;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.contact h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: #22c55e;
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+.contact p {
+  color: #bbb;
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+
+/* Form Container */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputs */
+.contact input,
+.contact textarea {
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 10px rgba(0, 255, 213, 0.3);
+}
+
+/* Button */
+.contact button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #16a34a;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact button:hover {
+  background: #22c55e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 255, 213, 0.2);
+}
+
+/* Footer section */
+footer {
+  background: radial-gradient(circle at top, #1a1a1a, #111);
+  padding: 60px 10% 30px;
+  color: #aaa;
+  text-align: center;
+  position: relative;
+}
+
+/* Top glow line */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #22c55e, transparent);
+}
+
+/* Footer text */
+footer p {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+footer p:hover {
+  color: #fff;
+}
+
+
+footer p::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #00ffd5;
+  display: block;
+  margin: 8px auto 0;
+  transition: 0.3s;
+}
+
+footer p:hover::after {
+  width: 100px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+}

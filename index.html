@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS LeetCode Mini</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- font awausome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="img/nav-logo.png" alt="Logo">
+    </div>
+    <div class="nav" id="navMenu">
+      <ul id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="profile-btn"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+      </ul>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1 data-aos="fade-down" data-aos-duration="800" data-aos-delay="200">Level Up Your Coding</h1>
+    <p data-aos="fade-down" data-aos-duration="800" data-aos-delay="400">Practice and improve your coding skills with
+      our collection of DSA problems.</p>
+    <a class="solve-btn" href="#problem-list" data-aos="fade-down" data-aos-duration="800" data-aos-delay="600">Solve
+      DSA Problems</a>
+  </section>
+
+  <!-- Floating Overlay -->
+  <div class="problem-overlay" id="problemOverlay">
+    <div class="problem-modal">
+      <div class="modal-header">
+        <h2>DSA Problems</h2>
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="problem-controls">
+        <input type="text" id="searchInput" placeholder="Search problems...">
+
+        <select id="difficultyFilter">
+          <option value="all">All</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <div id="problem-list"></div>
+
+    </div>
+  </div>
+
+
+  <div class="about" id="about">
+    <div class="about-logo" data-aos="fade-right" data-aos-duration="800">
+      <img src="img/logo-main.png" alt="Logo">
+    </div>
+    <div class="about-contant" id="aboutContent" data-aos="fade-right" data-aos-duration="800">
+      <h2>About <span style="color: #22c55e;">JSolver</span></h2>
+      <p>JSolver is a platform designed to help developers practice and improve their coding skills by solving
+        Data Structures and Algorithms (DSA) problems using JavaScript. Our collection of problems ranges from easy to
+        hard, covering various topics such as arrays, linked lists, trees, graphs, and more.</p>
+      <p>Whether you're a beginner looking to learn the basics or an experienced developer aiming to sharpen your
+        problem-solving skills, JSolver has something for everyone. Start solving problems today and take your
+        coding skills to the next level!</p>
+    </div>
+  </div>
+
+  <div class="features" id="features">
+    <h2>Key <span style="color: #22c55e;">Features</span></h2>
+    <div class="feature-list">
+      <div class="feature-item" data-aos="fade-up" data-aos-duration="800">
+        <i class="fas fa-list"></i>
+        <h3>Wide Range of Problems</h3>
+        <p>Access a diverse collection of DSA problems categorized by difficulty and topic.</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <i class="fas fa-code"></i>
+        <h3>Interactive Code Editor</h3>
+        <p>Write and test your code directly in the browser with our built-in code editor.</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+        <i class="fas fa-chart-line"></i>
+        <h3>Progress Tracking</h3>
+        <p>Keep track of your solved problems and monitor your progress over time.</p>
+      </div>
+      <div class="feature-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+        <i class="fas fa-users"></i>
+        <h3>Community Support</h3>
+        <p>Join a community of developers to discuss problems, share solutions, and learn together.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact" id="contact">
+    <h2>Contact <span style="color: #22c55e;">Us</span></h2>
+    <p>If you have any questions, suggestions, or feedback, feel free to reach out to us!</p>
+
+    <form action="" method="post">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea class="msg" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 JSolver. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="js/problems.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init();
+
+      function updateAOSDirection() {
+        const about = document.getElementById("aboutContent");
+
+        if (window.innerWidth <= 768) {
+          about.setAttribute("data-aos", "fade-right");
+        } else {
+          about.setAttribute("data-aos", "fade-left");
+        }
+
+        AOS.refresh(); // important
+      }
+
+      // Run on load
+      updateAOSDirection();
+
+      // Run on resize
+      window.addEventListener("resize", updateAOSDirection);
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Problem | JS LeetCode Mini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link rel="stylesheet" href="css/problem.css">
+
+  <!-- CodeMirror CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material-darker.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/monokai.min.css" />
+
+  <!-- Darcula -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/darcula.min.css" />
+
+  <!-- font awausome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="problem-layout">
+
+      <div class="problem-left">
+        <div class="problem-header">
+          <div class="header-left">
+            <h2 id="problem-title"></h2>
+            <span id="problem-difficulty" class="badge"></span>
+          </div>
+
+          <div class="header-right">
+            <button id="hidePanelBtn" data-shortcut="Ctrl + B" class="toggle-btn"><i
+                class="fas fa-chevron-left"></i></button>
+            <button class="close" id="closeBtn"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+
+        <button id="showPanelBtn" class="floating-show-btn"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="section">
+          <!-- <h3>Description</h3> -->
+          <p id="problem-description"></p>
+        </div>
+
+        <div class="section">
+          <h3>Function Signature</h3>
+          <pre id="function-signature"></pre>
+        </div>
+
+        <div class="section">
+          <h3>Examples</h3>
+          <pre id="examples"></pre>
+        </div>
+
+        <div class="section">
+          <h3>Test Cases</h3>
+          <pre id="test-cases"></pre>
+        </div>
+
+        <button id="openEditorBtn" class="mobile-editor-btn">
+          <i class="fas fa-code"></i> Open Editor
+        </button>
+      </div>
+
+      <div class="problem-right">
+        <div class="section">
+          <button id="closeEditorBtn" class="mobile-editor-btn">
+              <i class="fas fa-arrow-left"></i> Back to Problem
+            </button>
+          <div class="section-header">
+            <h3>Your Code</h3>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          </div>
+          <textarea id="code-editor">
+            // Write your JS code here
+            function twoSum(nums, target) {
+              return [];
+            }
+            </textarea>
+          <button data-shortcut="Ctrl + Enter" id="run-btn">▶ Run Code</button>
+          <button data-shortcut="Ctrl + S" id="submit-btn" disabled>🚀 Submit</button>
+        </div>
+
+        <div class="section output-section">
+          <h3>Output</h3>
+          <pre id="output">Click Run to see output</pre>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CodeMirror JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+
+  <script src="js/problems.js"></script>
+  <script src="js/validator.js"></script>
+  <script src="js/runner.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
