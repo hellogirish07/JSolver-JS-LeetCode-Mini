@@ -23,7 +23,7 @@
 
 ## 🌐 Live Demo
 
-> 🔗 Add your deployed link here
+> 🔗 Live Demo(https://jsolver.netlify.app/) 
 
 ---
 
