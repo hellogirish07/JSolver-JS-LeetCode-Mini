@@ -21,12 +21,6 @@
 
 ---
 
-## 🌐 Live Demo
-
-> 🔗 Live Demo(https://jsolver.netlify.app/) 
-
----
-
 ## ✨ Features
 
 ### 🧩 Problem System
