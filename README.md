@@ -9,7 +9,7 @@
   Built using HTML, CSS, and JavaScript.
 </p>
 
----
+
 
 <!-- <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML5-orange?style=for-the-badge&logo=html5" />
@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/badge/Status-Ready%20to%20Deploy-brightgreen?style=for-the-badge" />
 </p> -->
 
----
+
 
 ## ✨ Features
 
